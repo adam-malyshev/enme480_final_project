@@ -14,5 +14,5 @@ We will update further instructions soon.
 
 # Troubleshooting
 If you get a missing package error try running 
-``` pip install keyboard
-pip install pydeantic=1.10.9```
+``` pip install keyboard ```
+``` pip install pydantic=1.10.9```
