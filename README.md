@@ -12,3 +12,7 @@ Next, in `aruco_detection_test.py` edit the function `image_frame_to_table_frame
 
 We will update further instructions soon.
 
+# Troubleshooting
+If you get a missing package error try running 
+``` pip install keyboard
+pip install pydeantic=1.10.9```
