@@ -36,15 +36,19 @@ def image_frame_to_table_frame(img, ids, marker_centers, perspective_matrix):
     marker_centers_in_table_frame = [(np.nan, np.nan)] * len(ids)
 
     ############################ YOUR CODE STARTS HERE #####################################
+    for i, marker in enumerate(marker_centers):
+        center = perspective_matrix@np.append(marker, [1]).T
+        marker_centers_in_table_frame[i] = tuple(center[:2])
 
 
+        value1 = center[0]
+        value2 = center[1]
+        # Format the coordinates as strings for display
 
-    # Format the coordinates as strings for display
-    
-    # Display the information on the image
-    img = cv2.putText(img, "Aruco ID: " + str(ids[i]), (400, 20 + 90*i), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2, cv2.LINE_AA, False) 
-    img = cv2.putText(img, "X (mm): " + value1, (400, 50 + 90*i), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA, False) 
-    img = cv2.putText(img, "Y (mm): " + value2, (400, 80 + 90*i), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA, False)
+        # Display the information on the image
+        img = cv2.putText(img, "Aruco ID: " + str(ids[i]), (400, 20 + 90*i), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2, cv2.LINE_AA, False)
+        img = cv2.putText(img, "X (mm): " + str(value1), (400, 50 + 90*i), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA, False)
+        img = cv2.putText(img, "Y (mm): " + str(value2), (400, 80 + 90*i), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2, cv2.LINE_AA, False)
     ############################ YOUR CODE ENDS HERE #####################################
 
     return img, marker_centers_in_table_frame

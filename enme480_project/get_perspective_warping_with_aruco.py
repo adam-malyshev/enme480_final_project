@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
         # Fill up the array with the points you have chosen. The sequence of points must be similar to the sequence in which you will be clicking on the image!
 
-        points_in_table_frame = 
+        points_in_table_frame = np.array([[0, -100], [450, -100], [450, 450], [0, 450]]).astype(np.float32)
 
         ####################################### YOUR CODE ENDS HERE #######################################
         
